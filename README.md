@@ -15,13 +15,9 @@
     <th>Description</th>
     <th>Default</th>
   </tr>
-  <tr>
-    <td><tt>['aggregator']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
 </table>
+
+ No default attribute.
 
 ## Usage
 
