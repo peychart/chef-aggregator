@@ -1,6 +1,6 @@
 # aggregator-cookbook
 
- This chef cookbook configures an adsl aggregator.
+ This chef cookbook allows to configure several adsl aggregators from their definitions contained in a data bag...
 
 ## Supported Platforms
 
