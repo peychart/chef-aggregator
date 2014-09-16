@@ -34,7 +34,7 @@ eg:
     "ip route add default dev eth0;"
   ],
   "start": [
-    "ip route add 192.168.0.0/16 via 192.168.8.2;",
+    "ip route add 192.168.0.0/16 via 192.168.0.2;",
     "ip route add default scope global",
     "nexthop via 192.168.8.3 weight 1",
     "nexthop via 192.168.8.4 weight 1",

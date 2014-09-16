@@ -28,7 +28,7 @@ rescue Exception => e
   puts "********************************************************************\n"
   puts e.message
   puts "********************************************************************\n\n"
-  return
+  return 1
 #  puts e.backtrace.inspect
 #ensure
 #  puts "Ensuring execution"
