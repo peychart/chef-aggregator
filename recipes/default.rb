@@ -50,3 +50,4 @@ end
 
 include_recipe 'chef-iproute2::default'
 
+puts "aggregator ended."
