@@ -18,8 +18,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 puts "aggregator recipe:"
-node.default['iproute2']['start'] = [""]
-node.default['iproute2']['stop']  = [""]
+node.default['iproute2']['start'] = []
+node.default['iproute2']['stop']  = []
 
 begin
 #  raise 'This node name is not defined for such a role (procedure aborted)...' if roleExist == true
@@ -29,21 +29,16 @@ rescue Exception => e
   puts e.message
   puts "********************************************************************\n\n"
   return 1
-#  puts e.backtrace.inspect
-#ensure
-#  puts "Ensuring execution"
 end
 
-aggregatorDefinition = data_bag_item('clusters', node['fqdn'].gsub(".", "_"))
+clusterDefinition = data_bag_item('clusters', node['fqdn'].gsub(".", "_"))
 
-if aggregatorDefinition
-  node.default['iproute2']['stop'].clear
-  aggregatorDefinition['iproute2']['stop'].each do |i|
+if clusterDefinition && clusterDefinition['iproute2']
+  clusterDefinition['iproute2']['stop'].each do |i|
     node.default['iproute2']['stop'].push(i)
   end
 
-  node.default['iproute2']['start'].clear
-  aggregatorDefinition['iproute2']['start'].each do |i|
+  clusterDefinition['iproute2']['start'].each do |i|
     node.default['iproute2']['start'].push(i)
   end
 end
