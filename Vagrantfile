@@ -82,7 +82,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     }
 
     chef.run_list = [
-        "recipe[aggregator::default]"
+        "recipe[chef-aggregator::default]"
     ]
   end
 end
