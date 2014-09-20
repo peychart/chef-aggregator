@@ -17,7 +17,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-puts "aggregator recipe:"
 node.default['iproute2']['start'] = []
 node.default['iproute2']['stop']  = []
 
@@ -44,5 +43,3 @@ if clusterDefinition && clusterDefinition['iproute2']
 end
 
 include_recipe 'chef-iproute2::default'
-
-puts "aggregator ended."
