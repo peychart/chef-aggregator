@@ -21,23 +21,23 @@ node.default['iproute2']['start'] = []
 node.default['iproute2']['stop']  = []
 
 begin
-#  raise 'This node name is not defined for such a role (procedure aborted)...' if roleExist == true
-  raise 'This node name is not defined for such a role (procedure aborted)...' if ! data_bag_item('clusters', node['fqdn'].gsub(".", "_"))
-rescue Exception => e
-  puts "********************************************************************\n"
-  puts e.message
-  puts "********************************************************************\n\n"
+  raise unless iproute2Definition = data_bag_item('clusters', node['fqdn'].gsub(".", "_"))
+  rescue Exception
+    puts '********************************************************************'
+    puts 'This node name is not defined for such a role (procedure aborted)...'
+    puts '********************************************************************'
   return 1
+  ensure
+  #
 end
 
-clusterDefinition = data_bag_item('clusters', node['fqdn'].gsub(".", "_"))
-
-if clusterDefinition && clusterDefinition['iproute2']
-  clusterDefinition['iproute2']['stop'].each do |i|
+if iproute2Definition && iproute2Definition['iproute2']
+  iproute2Definition = iproute2Definition['iproute2']
+  iproute2Definition['stop'].each do |i|
     node.default['iproute2']['stop'].push(i)
   end
 
-  clusterDefinition['iproute2']['start'].each do |i|
+  iproute2Definition['start'].each do |i|
     node.default['iproute2']['start'].push(i)
   end
 end
