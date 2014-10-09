@@ -1,6 +1,6 @@
 name             'aggregator'
 maintainer       'PE, pf.'
-maintainer_email 'philippe.eychart@mail.pf'
+maintainer_email 'peychart@mail.pf'
 license          'GNU Public License 3.0'
 description      'Installs/Configures aggregator'
 long_description 'Installs/Configures aggregator'
